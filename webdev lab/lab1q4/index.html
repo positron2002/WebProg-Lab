@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produce Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        label, select, input {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Generate Bill</h2>
+
+        <label for="brand">Select Brand:</label>
+        <select id="brand">
+            <option value="HP">HP</option>
+            <option value="Nokia">Nokia</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Motorola">Motorola</option>
+            <option value="Apple">Apple</option>
+        </select>
+
+        <label>Select Product Type:</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="mobile" value="Mobile">
+            <label for="mobile">Mobile</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="laptop" value="Laptop">
+            <label for="laptop">Laptop</label>
+        </div>
+
+        <label for="quantity">Enter Quantity:</label>
+        <input type="number" id="quantity" placeholder="Enter quantity">
+
+        <button onclick="produceBill()">Produce Bill</button>
+    </div>
+
+    <script>
+        function produceBill() {
+            const brand = document.getElementById("brand").value;
+            const isMobile = document.getElementById("mobile").checked;
+            const isLaptop = document.getElementById("laptop").checked;
+            const quantity = parseInt(document.getElementById("quantity").value);
+
+            if (isNaN(quantity) || quantity <= 0) {
+                alert("Please enter a valid quantity.");
+                return;
+            }
+
+            let unitPrice = 0;
+
+            // Set unit price based on product type
+            if (isMobile && isLaptop) {
+                unitPrice = 2000; // Example price for both
+            } else if (isMobile) {
+                unitPrice = 1000; // Example price for mobile
+            } else if (isLaptop) {
+                unitPrice = 1500; // Example price for laptop
+            } else {
+                alert("Please select at least one product type.");
+                return;
+            }
+
+            const totalAmount = unitPrice * quantity;
+
+            alert(`Brand: ${brand}\nProduct: ${isMobile ? "Mobile" : ""} ${isLaptop ? "Laptop" : ""}\nQuantity: ${quantity}\nTotal Amount: ₹${totalAmount}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table and Image Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            transition: transform 1s ease;
+        }
+        table {
+            border-collapse: collapse;
+            width: 300px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: greenyellow;
+        }
+        tr:nth-child(odd) {
+            background-color: red;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="moveContainer()">Move Content</button>
+        <div id="container" class="container">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+                <tr>
+                    <td>Alice</td>
+                    <td>28</td>
+                    <td>New York</td>
+                </tr>
+                <tr>
+                    <td>Bob</td>
+                    <td>35</td>
+                    <td>San Francisco</td>
+                </tr>
+                <tr>
+                    <td>Charlie</td>
+                    <td>42</td>
+                    <td>Chicago</td>
+                </tr>
+            </table>
+            <img src="C:\Users\rishi\OneDrive - Manipal Academy of Higher Education\webdev lab\lab1q1\images.jpg" alt="Sample Image">
+        </div>
+    </div>
+
+    <script>
+        let isMovedLeft = false;
+        function moveContainer() {
+            const container = document.getElementById('container');
+            container.style.transform = isMovedLeft 
+                ? 'translateX(0)' 
+                : 'translateX(-100%)';
+            isMovedLeft = !isMovedLeft;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body { background-color: #f8f9fa; font-family: Arial, sans-serif; }
+        .table th, .table td { text-align: center; vertical-align: middle; }
+        .break { background-color: #FFC107 !important; font-weight: bold; }
+        .lunch { background-color: #0D47A1 !important; color: white; font-weight: bold; }
+        .carousel img {
+            height: auto;
+            width: auto;
+            max-width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h3 class="text-center mb-3">Class Timetable</h3>
+
+        <!-- Bootstrap Carousel -->
+        <div id="timetableCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Screenshot_2.png" class="d-block w-100" alt="Logo">
+                </div>
+             
+                
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#timetableCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#timetableCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <!-- Timetable -->
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Day</th>
+                    <th>9-9:50</th>
+                    <th>9:50-10:40</th>
+                    <th class="break">Break</th>
+                    <th>10:50-11:40</th>
+                    <th>11:40-12:30</th>
+                    <th class="lunch">Lunch</th>
+                    <th>1-1:50</th>
+                    <th>1:50-2:40</th>
+                    <th class="break">Break</th>
+                    <th>2:50-3:40</th>
+                    <th>3:40-4:30</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Mon</td><td>PCAP</td><td>PEI</td><td></td><td>CD</td><td></td><td></td><td></td><td colspan="2">PCAP Lab (2-4PM)</td><td></td><td></td></tr>
+                <tr><td>Tue</td><td>Hons</td><td>EEFM</td><td></td><td>PCAP</td><td>PEI</td><td></td><td></td><td></td><td></td><td>OE</td><td></td></tr>
+                <tr><td>Wed</td><td>Hons</td><td>PEII</td><td></td><td>EEFM</td><td>PCAP</td><td></td><td></td><td colspan="2">CD Lab (2-4PM)</td><td></td><td></td></tr>
+                <tr><td>Thu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>Fri</td><td>Hons</td><td>PEI</td><td></td><td>CD</td><td>PEII</td><td></td><td colspan="4">Web Programming Lab (1:30-4:30PM)</td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
